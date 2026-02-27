@@ -241,4 +241,29 @@ Not:
 
 ------------------------------------------------------------------------
 
+# Engineering-Led UI/UX & Accessibility Guidelines
+
+## 1. Color & Contrast (WCAG 2.1 AA Standards)
+- **Standard Text:** Maintain a minimum contrast ratio of 4.5:1 for normal text (under 18pt/24px).
+- **Large Text:** Maintain a minimum contrast ratio of 3:1 for text at or above 18pt/24px.
+- **UI Components:** Graphical objects and user interface components (borders, icons, focused states) must have a contrast ratio of at least 3:1.
+- **Non-Color Indicators:** Do not use color as the only visual means of conveying information (e.g., use icons or underlines in addition to color for error states or links).
+
+## 2. Layout, Spacing & Sizing
+- **Touch Targets:** All interactive elements (buttons, links, inputs) must have a minimum hit area of 44x44px.
+- **Spacing System:** Follow a strict 8px (0.5rem) linear scale for all padding, margins, and gaps. Avoid "magic numbers" (e.g., 7px, 13px).
+- **Responsive Units:** Use `rem` or `em` for font sizes and spacing to ensure layouts scale with user browser settings. Do not hardcode `px` for typography.
+- **Grid:** Use CSS Grid or Flexbox with `gap` properties rather than manual margin-right calculations to ensure layout consistency.
+
+## 3. Semantic HTML & ARIA
+- **Heading Hierarchy:** Use `<h1>` through `<h6>` in a strict sequential order. Do not skip levels (e.g., do not go from `<h2>` to `<h4>`).
+- **Interactive Elements:** Use `<button>` for actions and `<a>` for navigation. Do not attach click handlers to `<div>` or `<span>` without providing `role="button"` and `tabindex="0"`.
+- **Form Labels:** Every `<input>`, `<select>`, and `<textarea>` must have a programmatically associated `<label>` via the `for`/`id` attributes.
+- **Images:** All `<img>` tags must include an `alt` attribute. Use descriptive text for functional images and `alt=""` (empty) for purely decorative images.
+
+## 4. State & Feedback
+- **Focus States:** Never remove default focus outlines (`outline: none`) without providing a high-contrast CSS `:focus-visible` alternative.
+- **Loading States:** Provide `aria-busy="true"` and `aria-live` regions for dynamic content updates.
+- **Error Handling:** Form errors must be linked to their respective inputs using `aria-describedby`.
+
 End of Document
